@@ -93,7 +93,7 @@ body{
 #root{
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 102% min-content;
+  grid-template-rows: 102% max-content;
   grid-template-areas: 
   "today yesterday"
   "nextdays nextdays"
@@ -310,7 +310,7 @@ main .day_temperatures_minmax_container{
   box-shadow: 0 0 8px var(--shadow-light);
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 35% min-content 15%;
+  grid-template-rows: 35% 55% 10%;
   grid-template-areas: 
   "dayname dayname"
   "subcontainer subcontainer"
