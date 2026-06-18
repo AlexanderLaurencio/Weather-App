@@ -6,17 +6,18 @@
 }
 
 :root{
-  --bg-primary-color: hsla(240, 20%, 99%, 1);
-  --bg-secondary-color: hsla(210, 2%, 85%, 1);
-  --border-color: hsla(210, 2%, 80%, 1);
-  --text-primary-color: hsla(240, 20%, 99%, 1);
-  --text-secondary-color: hsla(220, 2%, 75%, 1);
-  --accent-color: hsla(220, 80%, 70%, 1);
-  --accent-color-hover: hsla(220, 70%, 40%, 1);
-  --shadow-light: hsla(220, 0%, 25%, .5);
-  --shadow-dark: hsla(220, 0%, 10%, .5);
-  /* FONT-SIZEs */
-
+  /* COLORS */
+    --bg-primary-color: hsla(240, 20%, 99%, 1);
+    --bg-secondary-color: hsla(210, 2%, 85%, 1);
+    --border-color: hsla(210, 2%, 80%, 1);
+    --text-primary-color: hsla(240, 20%, 99%, 1);
+    --text-secondary-color: hsla(220, 2%, 75%, 1);
+    --accent-color: hsla(220, 80%, 70%, 1);
+    --accent-color-hover: hsla(220, 70%, 40%, 1);
+    --shadow-light: hsla(220, 0%, 25%, .5);
+    --shadow-dark: hsla(220, 0%, 10%, .5);
+  
+      /* FONT-SIZEs */
     --font-size-base: clamp(16px, 1vw + 1rem, 20px);
     --font-size-p: clamp(1.00rem, 0.8vw + 1rem, 1.25rem);      
     --font-size-small: clamp(0.80rem, 0.5vw + 0.8rem, 1rem);    
@@ -27,46 +28,46 @@
     --font-size-h2: clamp(3.05rem, 2.5vw + 1.5rem, 4rem);  
     --font-size-h1: clamp(3.81rem, 3vw + 1.5rem, 5rem);    
 
-    /* PADDINGs */
-    --padding-xs: 0.5rem;
-    --padding-s: 0.75rem;
-    --padding-l: 1rem;
-    --padding-m: 1.25rem;
-    --padding-x: 1.5rem;
-    --padding-xx: 1.75rem;
-    --padding-xxl: 2rem;
-    --padding-xxxl: 2.25rem;
-    --padding-xxxxl: 2.5rem;
-    --padding-xxxxxl: 2.75rem;
-    --padding-xxxxxxl: 3rem;
+      /* PADDINGS */
+    --padding-xs: clamp(0.4rem, 1vw, 0.5rem);
+    --padding-s: clamp(0.5rem, 1.2vw, 0.75rem);
+    --padding-l: clamp(0.75rem, 1.5vw, 1rem);
+    --padding-m: clamp(0.9rem, 1.8vw, 1.25rem);
+    --padding-x: clamp(1rem, 2vw, 1.5rem);
+    --padding-xx: clamp(1.1rem, 2.2vw, 1.75rem);
+    --padding-xxl: clamp(1.25rem, 2.5vw, 2rem);
+    --padding-xxxl: clamp(1.5rem, 2.8vw, 2.25rem);
+    --padding-xxxxl: clamp(1.75rem, 3vw, 2.5rem);
+    --padding-xxxxxl: clamp(2rem, 3.2vw, 2.75rem);
+    --padding-xxxxxxl: clamp(2.25rem, 3.5vw, 3rem);
 
-    /* MARGINs */
-    --margin-xs: 0.5rem;
-    --margin-s: 0.75rem;
-    --margin-l: 1rem;
-    --margin-m: 1.25rem;
-    --margin-x: 1.5rem;
-    --margin-xx: 1.75rem;
-    --margin-xxl: 2rem;
-    --margin-xxxl: 2.25rem;
-    --margin-xxxxl: 2.5rem;
-    --margin-xxxxxl: 2.75rem;
-    --margin-xxxxxxl: 3rem;
+      /* MARGINS */
+    --margin-xs: clamp(0.4rem, 1vw, 0.5rem);
+    --margin-s: clamp(0.5rem, 1.2vw, 0.75rem);
+    --margin-l: clamp(0.75rem, 1.5vw, 1rem);
+    --margin-m: clamp(0.9rem, 1.8vw, 1.25rem);
+    --margin-x: clamp(1rem, 2vw, 1.5rem);
+    --margin-xx: clamp(1.1rem, 2.2vw, 1.75rem);
+    --margin-xxl: clamp(1.25rem, 2.5vw, 2rem);
+    --margin-xxxl: clamp(1.5rem, 2.8vw, 2.25rem);
+    --margin-xxxxl: clamp(1.75rem, 3vw, 2.5rem);
+    --margin-xxxxxl: clamp(2rem, 3.2vw, 2.75rem);
+    --margin-xxxxxxl: clamp(2.25rem, 3.5vw, 3rem);
 
-    /* GAPs */
-    --gap-xs: 0.5rem;
-    --gap-s: 0.75rem;
-    --gap-l: 1rem;
-    --gap-m: 1.25rem;
-    --gap-x: 1.5rem;
-    --gap-xx: 1.75rem;
-    --gap-xxl: 2rem;
-    --gap-xxxl: 2.25rem;
-    --gap-xxxxl: 2.5rem;
-    --gap-xxxxxl: 2.75rem;
-    --gap-xxxxxxl: 3rem;
+      /* GAPS */
+    --gap-xs: clamp(0.4rem, 1vw, 0.5rem);
+    --gap-s: clamp(0.5rem, 1.2vw, 0.75rem);
+    --gap-l: clamp(0.75rem, 1.5vw, 1rem);
+    --gap-m: clamp(0.9rem, 1.8vw, 1.25rem);
+    --gap-x: clamp(1rem, 2vw, 1.5rem);
+    --gap-xx: clamp(1.1rem, 2.2vw, 1.75rem);
+    --gap-xxl: clamp(1.25rem, 2.5vw, 2rem);
+    --gap-xxxl: clamp(1.5rem, 2.8vw, 2.25rem);
+    --gap-xxxxl: clamp(1.75rem, 3vw, 2.5rem);
+    --gap-xxxxxl: clamp(2rem, 3.2vw, 2.75rem);
+    --gap-xxxxxxl: clamp(2.25rem, 3.5vw, 3rem);
 
-    /*BORDER RADIUS*/
+      /*BORDER RADIUS*/
     --border-radius-small: .5rem;
     --border-radius-medium: .8rem;
     --border-radius-large: 1rem;
@@ -79,7 +80,6 @@ h1, h2, h3, h4, h5{
 p{
     text-wrap: pretty;
 }
-
 
 html{
   scroll-behavior: smooth;
@@ -108,7 +108,7 @@ body{
 main{
   grid-area: today;
   display: grid;
-  grid-template-columns: 40% 55%;
+  grid-template-columns: 40% 60%;
   grid-template-rows: 5% 20% 10% 40% 10%;
   grid-template-areas: 
   "day day"
@@ -173,8 +173,9 @@ main h1 .apparent_temperature{
 main .day_temperatures_minmax_container{
   grid-area: day_temperatures_minmax_container;
   display: flex;
-  gap: 0 var(--gap-l); 
-  justify-content: center;
+  gap: 0 var(--gap-xs); 
+  justify-content: space-between;
+  justify-self: center;
 }
 
 .day_temperature_minmax{
@@ -185,7 +186,6 @@ main .day_temperatures_minmax_container{
   background-color: var(--bg-primary-color);
   border-radius: var(--border-radius-medium);
   font-size: var(--font-size-small);
-  padding: var(--padding-xs);
   height: 70%;
   box-shadow: 0 0 12px var(--shadow-light);
 }
@@ -213,6 +213,7 @@ main .day_temperatures_minmax_container{
 .hours_container{
   grid-area: hours_container;
   display: grid;
+  width: 90%;
   grid-template-rows: repeat(5,17%);
   grid-template-columns: repeat(4,22%);
   gap: .05rem 0;
@@ -222,7 +223,6 @@ main .day_temperatures_minmax_container{
   background-color: var(--bg-secondary-color);
   border-radius: var(--border-radius-medium);
   justify-self: center;
-  width: 100%;
   box-shadow: 0 0 12px var(--shadow-light);
 }
 
@@ -252,9 +252,9 @@ main .day_temperatures_minmax_container{
 
 .yesterday_weather{
   grid-area: yesterday;
-  gap: var(--gap-l) 0;
+  gap: var(--gap-l) var(--gap-l);
   display: grid;
-  grid-template-columns: 40% 55%;
+  grid-template-columns: 40% 60%;
   grid-template-rows: 5% 20% 10% 40% 10%;
   grid-template-areas: 
   "day day"
@@ -263,6 +263,11 @@ main .day_temperatures_minmax_container{
   "day_temperatures_minmax_container hours_container"
   "day_temperatures_minmax_container hours_container"
   ;
+}
+
+.yesterday_weather .hours_container{
+  align-self: center;
+  justify-self: center;
 }
 
 .yesterday_weather .day_temperatures_minmax_container{
@@ -365,70 +370,12 @@ main .day_temperatures_minmax_container{
   padding-bottom: var(--padding-xs);
 }
 
-@media screen and (max-width: 1115px) {
-  .hour_time{
-    font-size: calc(var(--font-size-small) - .18rem);
-  }
-
-  .hour_precipitation_probability{
-    font-size: calc(var(--font-size-small) - .3rem);
-  }
-
-  .next_day_temperature_type{
-    font-size: calc(var(--font-size-small) - .2rem);
-  }
-
-  .next_day_precipitation_probilities{
-    font-size: calc(var(--font-size-p) - .1rem);
-  }
-
-  main .day_temperature_minmax{
-  height: 65%;
-  width: 48%;
-  }
-}
-
-@media screen and (max-width: 1095px) {
-  .next_day_temperature_type{
-    font-size: calc(var(--font-size-small) - .3rem);
-  }
-}
-
-
-@media screen and (max-width: 1035px) {
-  .hour_time{
-    font-size: calc(var(--font-size-small) - .25rem);
-  }
-}
-
 @media screen and (max-width: 1000px) {
   .day_temperature{
-    font-weight: 200;
-    text-align: center;
     font-size: calc(var(--font-size-small) - .1rem);
   }
-
   main .day_temperatures_minmax_container .day_temperature_minmax{
     height: 50%;
-  }
-
-  .hour_time{
-    font-size: calc(var(--font-size-small) - .29rem);
-  }
-}
-
-@media screen and (max-width: 940px) {
-  main, .yesterday_weather{
-    justify-self: center;
-    width: 100%;
-  }
-
-  .day_temperature{
-    font-size: calc(var(--font-size-small) - .2rem);
-  }
-
-  .hour_time{
-    font-size: calc(var(--font-size-small) - .34rem);
   }
 }
 
@@ -445,17 +392,8 @@ main .day_temperatures_minmax_container{
     gap: var(--gap-xs) var(--gap-xs);
     justify-content: center;
   }
-
-  .next_day_temperature_type{
-    font-size: calc(var(--font-size-small) - .4rem);
-  }
-
   .hours_container{
     width: 80%;
-  }
-
-  .hour_time{
-    font-size: calc(var(--font-size-small) - .08rem);
   }
 }
 
@@ -466,26 +404,10 @@ main .day_temperatures_minmax_container{
     grid-template-rows: 55% 55%;
     gap: var(--gap-l);
   }
-
-  .next_day_temperature_type{
-    font-size: calc(var(--font-size-small) - .2rem);
-  }
-
   .hours_container{
     width: 85%;
   }
-
 } 
-
-@media screen and (max-width: 900px) {
-  .hours_container{
-    width: 100%;
-  }
-
-  .hour_time{
-    font-size: calc(var(--font-size-small) - .35rem);
-  }
-}
 
 @media screen and (max-width: 550px) {
   .current_time{
@@ -494,6 +416,9 @@ main .day_temperatures_minmax_container{
 }
  
 @media screen and (max-width: 525px) {
+  .hours_container .yesterday_weather .hours_container{
+    width: 100%;
+  }
   .next_days{
     display: grid;
     grid-template-columns: repeat(2,50%);
@@ -503,13 +428,6 @@ main .day_temperatures_minmax_container{
 
   .next_day{
     grid-template-rows: 35% max-content max-content;
-  }
-}
-
-
-@media screen and (max-width: 390px) {
-  .day_temperature{
-    font-size: calc(var(--font-size-small) - .3rem);
   }
 }
 
@@ -529,38 +447,17 @@ main .day_temperatures_minmax_container{
   .yesterday_weather .day_temperatures_minmax_container .day_temperature_minmax{
     height: 40%;
   }
-  .yesterday_weather .day_temperatures_minmax_container .day_temperature_minmax .day_temperature{
-    font-size: calc(var(--font-size-small) - .02rem);
-  }
 }
 
-@media screen and (max-width: 335px) {
-  .day{
-  font-size: var(--font-size-h3);
-  }
-
-  main h1 .temperature{
-    font-size: calc(var(--font-size-h2) + 1rem);
-  }
-
-  .weather_name{
-    font-size: calc(var(--font-size-h6) - .2rem);
-  }
-
-  .weather_emoji{
-    font-size: var(--font-size-h4);
-  }
-} 
-
-@media screen and  (max-width: 300px) {
-  .day_temperatures_minmax_container{
-    flex-direction: column;
+@media screen and  (max-width: 460px) {
+  main .day_temperatures_minmax_container{
+    flex-direction: column !important;
     align-items: center;
-    grid-template-rows: var(--gap-m);
+    grid-template-rows: repeat(2, 50%);
     justify-content: space-between !important;
+    gap: var(--gap-xs) 0;
   }
-
-  .day_temperature_minmax{
+  main .da .day_temperature_minmax{
     width: 100% !important;
     height: 90% !important;
   }
