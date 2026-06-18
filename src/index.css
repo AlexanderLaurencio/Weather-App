@@ -120,6 +120,7 @@ main{
   gap: var(--gap-l) var(--gap-l);
 }
 
+
 main, .yesterday_weather, .next_days{
   background-color: var(--accent-color);
   box-shadow: 0 0 5px var(--shadow-dark);

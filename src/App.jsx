@@ -11,7 +11,6 @@ function App() {
     useEffect(() => {
         const loadWeather = async () => {
             const weatherData = await getGeolocation();
-            console.log(weatherData);
             setWeather(weatherData);
         };
         loadWeather();
