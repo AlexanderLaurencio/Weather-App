@@ -13,7 +13,6 @@ function App() {
             const weatherData = await getGeolocation();
             console.log(weatherData);
             setWeather(weatherData);
-            // console.log(weatherData);
         };
         loadWeather();
         const id = setInterval(() => {

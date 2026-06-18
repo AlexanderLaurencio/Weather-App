@@ -127,10 +127,8 @@ export const getGeolocation = () => {
         return new Promise((resolve,reject) => {
             navigator.geolocation.getCurrentPosition(async (pos) => {
                 try {
-                    //"./src/weather.json" 
                     const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude}&longitude=${pos.coords.longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&hourly=precipitation_probability&current=temperature_2m,apparent_temperature,weather_code&past_days=1`);
                     const data = await response.json();
-                    console.log(data);
                     resolve(processWeatherData(data));
                 } 
                 catch(e) {
