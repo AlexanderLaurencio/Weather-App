@@ -91,9 +91,10 @@ body{
 }
 
 #root{
+  scroll-snap-align: center;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 102% max-content;
+  grid-template-rows: repeat(2,minmax(400,100%)) min-content;
   grid-template-areas: 
   "today yesterday"
   "nextdays nextdays"
@@ -147,7 +148,7 @@ main h1{
 }
 
 main h1 .temperature{
-  font-size: calc(var(--font-size-h1) + 1rem);
+  font-size: var(--font-size-h1);
   font-weight: 900;
 }
 
@@ -295,13 +296,16 @@ main .day_temperatures_minmax_container{
 .next_days{
   grid-area: nextdays;
   display: grid;
-  grid-template-columns: repeat(6,16%);
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  grid-template-rows: min-content;
+  gap: var(--gap-l) !important;
   grid-template-rows: max-content;
   justify-content: space-between;
   background-color: transparent;
   box-shadow: none;
   padding-left: 0;
   padding-right: 0;
+  height: max-content;
 }
 
 .next_day{
@@ -320,7 +324,7 @@ main .day_temperatures_minmax_container{
 }
 
 .next_day_name{
-  padding: calc(var(--padding-m) - .5rem) var(--padding-xxxxxxl);
+  padding: var(--padding-xs) var(--padding-xxxxxxl);
   width: 96%;
   grid-area: dayname;
   justify-self: center;
@@ -381,8 +385,8 @@ main .day_temperatures_minmax_container{
 
 @media screen and (max-width: 910px) {
   #root{
-    grid-template-columns: 100%;
-    grid-template-rows: 102% 102% max-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: 102% 102% min-content;
     grid-template-areas: 
     "today"
     "yesterday"
@@ -392,42 +396,56 @@ main .day_temperatures_minmax_container{
     gap: var(--gap-xs) var(--gap-xs);
     justify-content: center;
   }
+    main .day_temperatures_minmax_container .day_temperature_minmax{
+    height: 40%;
+  }
   .hours_container{
     width: 80%;
+  }
+  .hour{
+    padding: var(--padding-s) var(--padding-s);
   }
 }
 
 @media screen and (max-width: 815px) {
-  .next_days{
-    display: grid;
-    grid-template-columns: repeat(3,32%);
-    grid-template-rows: 55% 55%;
-    gap: var(--gap-l);
-  }
   .hours_container{
     width: 85%;
+  }
+  main .day_temperature_minmax{
+    padding: var(--padding-s);
   }
 } 
 
 @media screen and (max-width: 550px) {
+  .next_day{
+    justify-self: center;
+  }
   .current_time{
     font-size: var(--font-size-h5);
+  }
+  .hour{
+    padding: calc(var(--padding-xs) - .1rem);
+  }
+  main .hour_time{
+    font-size: calc(var(--font-size-small) - .2rem);
+    grid-template-rows: repeat(5,26%);
   }
 }
  
 @media screen and (max-width: 525px) {
-  .hours_container .yesterday_weather .hours_container{
+  .yesterday_weather .hours_container{
     width: 100%;
   }
-  .next_days{
-    display: grid;
-    grid-template-columns: repeat(2,50%);
-    grid-template-rows: max-content max-content max-content;
-    padding: var(--padding-l) 0;
+  main .day_temperatures_minmax_container{
+    flex-direction: column !important;
+    align-items: center;
+    grid-template-rows: repeat(2, 50%);
+    justify-content: space-between !important;
+    gap: var(--gap-xs) 0;
   }
-
-  .next_day{
-    grid-template-rows: 35% max-content max-content;
+  main .day_temperature_minmax{
+    width: 100% !important;
+    height: 90% !important;
   }
 }
 
@@ -446,19 +464,5 @@ main .day_temperatures_minmax_container{
   }
   .yesterday_weather .day_temperatures_minmax_container .day_temperature_minmax{
     height: 40%;
-  }
-}
-
-@media screen and  (max-width: 460px) {
-  main .day_temperatures_minmax_container{
-    flex-direction: column !important;
-    align-items: center;
-    grid-template-rows: repeat(2, 50%);
-    justify-content: space-between !important;
-    gap: var(--gap-xs) 0;
-  }
-  main .da .day_temperature_minmax{
-    width: 100% !important;
-    height: 90% !important;
   }
 }
