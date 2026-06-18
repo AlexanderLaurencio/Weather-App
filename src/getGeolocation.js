@@ -126,18 +126,13 @@ const weatherCodes = Object.freeze({
 export const getGeolocation = () => {
         return new Promise((resolve,reject) => {
             navigator.geolocation.getCurrentPosition(async (pos) => {
-                try {
                     const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude}&longitude=${pos.coords.longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&hourly=precipitation_probability&current=temperature_2m,apparent_temperature,weather_code&past_days=1`);
                     if (!response.ok) {
                       throw new Error("Failed while fetching data")
                     }
                     const data = await response.json();
                     resolve(processWeatherData(data));
-                } 
-                catch(e) {
-                    reject(e)
-                }
-            },reject)
+            },() => reject(Error("Error getting your geolocation")))
         })
 };
 
