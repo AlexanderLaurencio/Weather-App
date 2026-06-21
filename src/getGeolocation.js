@@ -4,7 +4,7 @@ const days = [
     "Wednesday",
     "Thursday",
     "Friday",
-    "Satuday",
+    "Saturday",
     "Sunday"
   ];
 

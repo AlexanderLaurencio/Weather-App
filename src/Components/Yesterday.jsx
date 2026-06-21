@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import './index.css'
-import { Weather } from './Components/Today'
-import { DayTemperatureMinMax } from './Components/Today'
-import { DayTemperatureMinMaxContainer } from './Components/Today'
-import { Hour } from './Components/Today'
-import { Hours } from './Components/Today'
+import './../index.css'
+import { Weather } from './Today'
+import { DayTemperatureMinMax } from './Today'
+import { DayTemperatureMinMaxContainer } from './Today'
+import { Hour } from './Today'
+import { Hours } from './Today'
 
 function Yesterday({yesterdayWeather}) {
     return(

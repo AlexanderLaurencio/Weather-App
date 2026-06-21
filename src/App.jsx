@@ -3,7 +3,7 @@ import './index.css'
 import {Routes, Route} from 'react-router'
 import Today from './Components/Today.jsx';
 import { getGeolocation } from './getGeolocation.js';
-import Yesterday from './Yesterday.jsx';
+import Yesterday from './Components/Yesterday.jsx';
 import NextDays from './Components/NextDays.jsx';
 
 function App() {
