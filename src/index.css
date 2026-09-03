@@ -102,7 +102,7 @@ body{
   height: 100dvh;
   padding: var(--padding-l);
   background-color: var(--bg-primary-color);
-  gap: var(--gap-xs) var(--gap-xs);
+  gap: var(--gap-xs) var(--gap-l);
   justify-content: center;
 }
 

@@ -1,12 +1,12 @@
 const days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday"
-  ];
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday"
+];
 
 const weatherCodes = Object.freeze({
   0: {
@@ -124,66 +124,68 @@ const weatherCodes = Object.freeze({
 });
 
 export const getGeolocation = () => {
-        return new Promise((resolve,reject) => {
-            navigator.geolocation.getCurrentPosition(async (pos) => {
-                    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude}&longitude=${pos.coords.longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&hourly=precipitation_probability&current=temperature_2m,apparent_temperature,weather_code&past_days=1`);
-                    if (!response.ok) {
-                      throw new Error("Failed while fetching data")
-                    }
-                    const data = await response.json();
-                    resolve(processWeatherData(data));
-            },() => reject(Error("Error getting your geolocation")))
-        })
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+      const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude}&longitude=${pos.coords.longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&hourly=precipitation_probability&current=temperature_2m,apparent_temperature,weather_code&past_days=1`);
+      if (!response.ok) {
+        throw new Error("Failed while fetching data")
+      }
+      const data = await response.json();
+      console.log(data);
+      resolve(processWeatherData(data));
+    }, () => reject(Error("Error getting your geolocation")))
+  })
 };
 
 function processWeatherData(obj) {
-        //HERE I ADDED THE PROPERTY YESTERDAY WHICH CONTAINS ALL THE DATA RELATED
-        //TO THE WEATHER YESTERDAY
-        const yesterday = {};
-        yesterday.weather_code = weatherCodes[obj.daily.weather_code[0]];
-        yesterday.temperature_2m_max = obj.daily.temperature_2m_max[0];
-        yesterday.temperature_2m_min = obj.daily.temperature_2m_min[0];
-        yesterday.hours = []; 
-        getHours(yesterday,0,23);
+  //HERE I ADDED THE PROPERTY YESTERDAY WHICH CONTAINS ALL THE DATA RELATED
+  //TO THE WEATHER YESTERDAY
+  const yesterday = {};
+  yesterday.weather_code = weatherCodes[obj.daily.weather_code[0]];
+  yesterday.temperature_2m_max = obj.daily.temperature_2m_max[0];
+  yesterday.temperature_2m_min = obj.daily.temperature_2m_min[0];
+  yesterday.hours = [];
+  getHours(yesterday, 0, 23);
 
-        //HERE I ADDED THE PROPERTY TODAY WHICH CONTAINS ALL THE DATA RELATED
-        //TO THE WEATHER TODAY
-        const today = {};
-        today.temperature = obj.current.temperature_2m;
-        today.apparent_temperature = obj.current.apparent_temperature;
-        today.weather_code = weatherCodes[obj.current.weather_code];
-        today.temperature_2m_max = obj.daily.temperature_2m_max[1];
-        today.temperature_2m_min = obj.daily.temperature_2m_min[1];
-        today.hours = []; 
-        getHours(today,24,47);
-        
-        //HERE I ADDED THE PROPERTY NEXTDAYS WHICH CONTAINS AN ARRAY, THAT CONTAINS
-        //DATA RELATED TO THE WEATHER DURING THE NEXT 6 DAYS COUNTING FROM TODAY. EACH DAY IS REPRESENTED
-        //AS AN OBJECT
+  //HERE I ADDED THE PROPERTY TODAY WHICH CONTAINS ALL THE DATA RELATED
+  //TO THE WEATHER TODAY
+  const today = {};
+  today.temperature = obj.current.temperature_2m;
+  today.apparent_temperature = obj.current.apparent_temperature;
+  today.weather_code = weatherCodes[obj.current.weather_code];
+  today.temperature_2m_max = obj.daily.temperature_2m_max[1];
+  today.temperature_2m_min = obj.daily.temperature_2m_min[1];
+  today.hours = [];
+  getHours(today, 24, 47);
 
-        const next_days = [];
-        for (let i = 2; i <= 7; i++) {
-            const date = new Date(obj.daily.time[i]);
-            const dateName = days[date.getDay()];
+  //HERE I ADDED THE PROPERTY NEXTDAYS WHICH CONTAINS AN ARRAY, THAT CONTAINS
+  //DATA RELATED TO THE WEATHER DURING THE NEXT 6 DAYS COUNTING FROM TODAY. EACH DAY IS REPRESENTED
+  //AS AN OBJECT
 
-            next_days.push({
-                dayId: days.indexOf(String(dateName)),
-                dayName: dateName,
-                min_temperature: obj.daily.temperature_2m_min[i],
-                max_temperature: obj.daily.temperature_2m_max[i],
-                precipitation_probability_max: obj.daily.precipitation_probability_max[i]
-            })
-        }
-        function getHours(object,indexStart, indexEnd) {
-            for (let i = indexStart; i <= indexEnd; i++) {
-            object.hours.push({
-                time: obj.hourly.time[i], 
-                precipitation_probability: obj.hourly.precipitation_probability[i]})
-          }
-        }
-        return {
-          yesterday: yesterday,
-          today: today,
-          next_days: next_days
-        }
+  const next_days = [];
+  for (let i = 1; i <= 6; i++) {
+    const date = new Date(obj.daily.time[i]);
+    const dateName = days[date.getDay()];
+
+    next_days.push({
+      dayId: days.indexOf(String(dateName)),
+      dayName: dateName,
+      min_temperature: obj.daily.temperature_2m_min[i],
+      max_temperature: obj.daily.temperature_2m_max[i],
+      precipitation_probability_max: obj.daily.precipitation_probability_max[i]
+    })
+  }
+  function getHours(object, indexStart, indexEnd) {
+    for (let i = indexStart; i <= indexEnd; i++) {
+      object.hours.push({
+        time: obj.hourly.time[i],
+        precipitation_probability: obj.hourly.precipitation_probability[i]
+      })
+    }
+  }
+  return {
+    yesterday: yesterday,
+    today: today,
+    next_days: next_days
+  }
 };
